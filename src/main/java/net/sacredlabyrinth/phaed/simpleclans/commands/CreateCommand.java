@@ -78,7 +78,12 @@ public class CreateCommand {
             ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clan.name.cannot.contain.color.codes"));
             return;
         }
-
+        
+        if (name.lenght() > 16){
+            ChatBlock.sendMessage(player, ChatColor.RED + "O nome nao pode conter mais do que 16 caracteres");
+            return;   
+        }
+        
         ClanPlayer cp = plugin.getClanManager().getClanPlayer(player);
 
         if (cp != null) {
